@@ -21,13 +21,21 @@ public class InMemoryPrimePersistence implements PrimePersistence {
         if(founders.isEmpty()){
             throw new PrimeException("Vacio");
         }
-        return null;
+        return founders;
     }
 
     @Override
     public FoundPrime getPrime(String prime) throws PrimeException {
-        // TODO Auto-generated method stub
-        return null;
+        FoundPrime fprime = null;
+        for(FoundPrime f: founders){
+            if(f.getPrime()==prime){
+                fprime=f;
+            }
+        }
+        if(fprime==null){
+            throw new PrimeException("Prime not founded");
+        }
+        return fprime;
     }
     
 }
