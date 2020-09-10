@@ -21,11 +21,11 @@ public class PrimesFinderTool {
             PrimesResultSet prs=new PrimesResultSet("john");
             
             //PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("10000"), prs);
-            PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("4"), prs);
-            PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("3"), prs);
-            PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("5"), prs);
-            PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("7"), prs);
-            PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("10"), prs);
+            //PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("4"), prs);
+            //PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("3"), prs);
+            //PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("5"), prs);
+            //PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("7"), prs);
+            PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("100"), prs);
             
             System.out.println("Prime numbers found:");
             

@@ -17,47 +17,33 @@ public class PrimeFinder{
                 BigInteger b=_b;
 
                 BigInteger lenght = new BigInteger("4");
-                BigInteger cero = new BigInteger("0");
+                BigInteger one = new BigInteger("1");
 
                 BigInteger spaceWork = (b.subtract(a)).divide(lenght);
 
                 System.out.println(spaceWork);
-                //Paralelizar
 
                 List<PrimeFinderThread> trs = new ArrayList<PrimeFinderThread>();
-
-                if(spaceWork.compareTo(cero)==0){
-
-                }
-
+                BigInteger next = a;
                 for(int i=1; i<=4; i++){
-                    BigInteger next = new BigInteger("0");
-                    BigInteger left = spaceWork.multiply(next);
+                    BigInteger left = next;
                     BigInteger right = left.add(spaceWork);
-                    //trs.add(new PrimeFinderThread(left, right)):
+                    next = right.add(one);
+                    System.out.println("l: "+left+" r: "+ right + " next:" + next);
+                    trs.add(new PrimeFinderThread(left, right,prs));
                 }
 
-                /*
-                MathUtilities mt=new MathUtilities();
-                int itCount=0;
-                BigInteger i=a;
-                while (i.compareTo(b)<=0){
-                    itCount++;
-                    if (mt.isPrime(i)){
-                        prs.addPrime(i);
-                    }
-                    i=i.add(BigInteger.ONE);
-                    System.out.println(itCount);
+                for(PrimeFinderThread pt : trs ){
+                    pt.start();
                 }
-                */
+
+                for(PrimeFinderThread pt : trs ){
+                    try {
+                        pt.join();
+                    } catch (Exception e) {
+                        //TODO: handle exception
+                    }
+                }
     }
-    
-    public static void finder() {
-        
-    }
-	
-	
-	
-	
 	
 }
