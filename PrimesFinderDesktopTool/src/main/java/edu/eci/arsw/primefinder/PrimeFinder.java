@@ -8,9 +8,6 @@ import java.util.List;
 
 public class PrimeFinder{
         
-	
-	
-        
 	public static void findPrimes(BigInteger _a, BigInteger _b, PrimesResultSet prs){
             
                 BigInteger a=_a;
@@ -21,22 +18,25 @@ public class PrimeFinder{
 
                 BigInteger spaceWork = (b.subtract(a)).divide(lenght);
 
-                System.out.println(spaceWork);
+                //System.out.println(spaceWork);
 
                 List<PrimeFinderThread> trs = new ArrayList<PrimeFinderThread>();
                 BigInteger next = a;
-                for(int i=1; i<=4; i++){
-                    BigInteger left = next;
-                    BigInteger right = left.add(spaceWork);
+                BigInteger left = next;
+                BigInteger right = left.add(spaceWork);
+                for(int i=1; i<4; i++){
+                    left = next;
+                    right = left.add(spaceWork);
                     next = right.add(one);
-                    System.out.println("l: "+left+" r: "+ right + " next:" + next);
+                    //System.out.println("l: "+left+" r: "+ right + " next:" + next);
                     trs.add(new PrimeFinderThread(left, right,prs));
                 }
+                trs.add(new PrimeFinderThread(next, b,prs));
 
                 for(PrimeFinderThread pt : trs ){
                     pt.start();
                 }
-
+                
                 for(PrimeFinderThread pt : trs ){
                     try {
                         pt.join();

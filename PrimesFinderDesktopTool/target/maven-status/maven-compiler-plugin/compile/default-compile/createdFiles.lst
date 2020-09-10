@@ -7,3 +7,4 @@ edu\eci\arsw\mouseutils\MathTools.class
 edu\eci\arsw\primefinder\PrimesFinderTool.class
 edu\eci\arsw\primefinder\PrimesResultSet.class
 edu\eci\arsw\mouseutils\MouseMovementMonitor.class
+edu\eci\arsw\primefinder\PrimeFinderThread.class
