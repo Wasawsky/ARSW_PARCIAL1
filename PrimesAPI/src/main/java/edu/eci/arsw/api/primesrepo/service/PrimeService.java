@@ -1,6 +1,7 @@
 package edu.eci.arsw.api.primesrepo.service;
 
 import edu.eci.arsw.api.primesrepo.model.FoundPrime;
+import edu.eci.arsw.api.primesrepo.persistence.PrimeException;
 
 import java.util.List;
 
@@ -11,10 +12,10 @@ import java.util.List;
 public interface PrimeService
 {
 
-    void addFoundPrime( FoundPrime foundPrime );
+    void addFoundPrime( FoundPrime foundPrime ) throws PrimeException;
 
-    List<FoundPrime> getFoundPrimes();
+    List<FoundPrime> getFoundPrimes() throws PrimeException;
 
-    FoundPrime getPrime( String prime );
+    FoundPrime getPrime( String prime ) throws PrimeException;
 
 }
